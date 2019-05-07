@@ -1,0 +1,56 @@
+{# [START form] #}
+{% extends "base.html" %}
+
+{% block content %}
+
+<datalist id="tickmarks">
+  <option value="1.0" label="1">
+  <option value="2.0" label="2">
+  <option value="3.0" label="3">
+  <option value="4.0" label="4">
+  <option value="5.0" label="5">
+</datalist>
+
+<h3>Review</h3>
+<br>
+<form method="POST" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label for="bookId">Required: please type the number written below.</label>
+    <input type="text" placeholder="type this: {{book_id}}" name = "bookId" id="bookId" value = "{{review.bookId}}" class="form-control is-invalid" required oninvalid="this.setCustomValidity('Please fill out this form.')" oninput="setCustomValidity('')"> 
+  </div>
+  <br>
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" value="{{review.username}}" class="form-control is-invalid" required oninvalid="this.setCustomValidity('Please fill out this form.')" oninput="setCustomValidity('')">
+  </div> <br>
+
+  <div class="form-group">
+    <label for="rate">Rate this book (1-5)</label>
+    <input type="range" list="tickmarks" class="custom-range" min="1" max="5" step="0.5" id="rate" name="rate" value="{{review.rate}}">
+  </div> <br>
+
+  <div class="form-group">
+    <label for="comment">Any comment on this book?</label>
+    <textarea name="comment" id="comment" class="form-control">{{review.comment}}</textarea>
+  </div> <br>
+
+  <label for="hashtags">Hashtags:</label>
+  <div class="form-row" id="hashtags">
+    <div class="form-group col-md-2">
+      <input type="text" name="tag1" id="tag1" placeholder="#ee488" value="{{review.tag1}}" class="form-control is-invalid" required oninvalid="this.setCustomValidity('hashtag please!')" oninput="setCustomValidity('')">
+    </div>
+    <div class="form-group col-md-2">
+      <input type="text" name="tag2" id="tag2" placeholder="#ee488" value="{{review.tag2}}" class="form-control is-invalid" required oninvalid="this.setCustomValidity('hashtag please!')" oninput="setCustomValidity('')">
+    </div>
+    <div class="form-group col-md-2">
+      <input type="text" name="tag3" id="tag3" placeholder="#ee488" value="{{review.tag3}}" class="form-control is-invalid" required oninvalid="this.setCustomValidity('hashtag please!')" oninput="setCustomValidity('')">
+    </div>
+  </div>
+  <br><br><br>
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
+
+{% endblock %}
+{# [END form] #}

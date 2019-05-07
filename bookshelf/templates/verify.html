@@ -1,0 +1,23 @@
+{# [START form] #}
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Verify</h3>
+
+<form method="POST" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label for="verify_id">Enter Username</label>
+    <input type="text" name="verify_id" id="verify_id" value="{{verify_id}}" class="form-control is-invalid" required oninvalid="this.setCustomValidity('Please fill out this form.')" oninput="setCustomValidity('')"/>
+  </div>
+
+  <div class="form-group">
+    <label for="verify_pw">Password</label>
+    <input type="password" name="verify_pw" id="verify_pw" value="{{verify_pw}}" class="form-control is-invalid" required oninvalid="this.setCustomValidity('Please fill out this form.')" oninput="setCustomValidity('')"/>
+  </div>
+
+  <button type="submit" class="btn btn-success">Verify</button>
+</form>
+
+{% endblock %}
+{# [END form] #}

@@ -1,0 +1,92 @@
+{#
+# Copyright 2015 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#}
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Books Search</h3>
+<br>
+
+<script>
+function result_url()
+{
+var url = "/books/search?title=" + document.getElementById("title").value;
+url = url + "&year=";
+url = url + document.getElementById("year").value;
+location.href = url;
+return false;
+}
+
+function result_hash_url()
+{
+var url = "/books/hsearch?hashtag=" + document.getElementById("hashtag").value;
+location.href = url;
+return false;
+}
+</script>
+
+<form class="form-inline">
+  <div class="input-group">
+    <input type="text" placeholder="title" class="form-control" id = "title" name = "title">
+  </div>
+  <div class="input-group">
+    <input type="text" placeholder="year" class="form-control" id = "year" name = "year">
+  </div>
+  <button onclick = "return result_url();"  class="btn btn-success btn-sm" type="Submit" id="button-addon2">
+  <i class="glyphicon glyphicon-search"></i> Search book</button>
+</form>
+<br>
+<form class="form-inline">
+  <div class="input-group">
+    <input type="text" placeholder="hashtag" class="form-control" id = "hashtag" name = "hashtag">
+  </div>
+  <button onclick = "return result_hash_url();"  class="btn btn-success btn-sm" type="Submit" id="button-addon2">
+  <i class="glyphicon glyphicon-search"></i> Search by hashtag</button>
+</form>
+<hr>
+<small id="addHelp" class="form-text text-muted">If you don't have one..</small><br>
+<a href="/books/add" class="btn btn-success btn-sm" id = "add_button">
+  <i class="glyphicon glyphicon-plus"></i>
+  Add book
+</a> <br> <br><hr>
+
+
+{% for book in books %}
+<div class="media">
+  <a href="/books/{{book.id}}">
+    <div class="media-left">
+      <img src="{{book.imageUrl}}" height="270" width="180">
+    </div>
+    <div class="media-body">
+      <h4>{{book.title}}</h4>
+      <p>{{book.author}} | {{book.publishedYear}}</p>
+    </div>
+  </a>
+</div>
+{% else %}
+<p>No books found</p>
+{% endfor %}
+
+{% if next_page_token %}
+<nav>
+  <ul class="pager">
+    <li><a href="?page_token={{next_page_token}}">More</a></li>
+  </ul>
+</nav>
+{% endif %}
+
+{% endblock %}
