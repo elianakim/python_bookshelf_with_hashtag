@@ -1,5 +1,6 @@
 # python_bookshelf
-Application of GoogldCloudPlatform/getting-started-python https://github.com/GoogleCloudPlatform/getting-started-python/tree/steps
+Application of GoogldCloudPlatform/getting-started-python
+https://github.com/GoogleCloudPlatform/getting-started-python/tree/steps
 
 ## Getting Started
 To connect Google Cloud SQL to local host and deploy the Bookshelf application, follow the instructions in https://cloud.google.com/python. 
