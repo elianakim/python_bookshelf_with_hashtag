@@ -8,10 +8,9 @@ After completing the initial setup, you can deploy the web application via comma
 
 ## About the Code
 I modified the code to enable a user searching for books and rating them. 
-Modified codes are in the directory '2-structured-data/bookshelf'
 
 ### Prerequisites
-Flask, a microframework for Python based Web developing. http://flask.pocoo.org/docs/1.0/
+Flask, a microframework for Python based Web developing. http://flask.pocoo.org/docs/1.0/ \
 SQLAlchemy, the Python SQL toolkit and Object Relational Mapper https://www.sqlalchemy.org
 
 ## Descriptions
