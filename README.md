@@ -51,7 +51,7 @@ To make examples, I distributed the url of this page and asked my friends to add
 **<What happens if I click #butilovebrahms button>**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/11_hashtag.PNG)<br/><br/>
 **<Reviews and hashtags for baby Rudin>**<br/><br/>
-![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/12_fun.PNG)<br/><br/>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/12_ex.PNG)<br/><br/>
 **<What happens if I click #mathematics button>**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/13_whenmathematics.PNG)<br/><br/>
   
