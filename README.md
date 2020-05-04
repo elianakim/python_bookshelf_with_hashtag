@@ -46,11 +46,11 @@ I revised "view.html" to enable user to review books. At the path "/books/<id>",
   
 In this format, users are required to type username, rate the book from 1 to 5, (step = 0.5) and write comment (reviews). Also, they need to fill out 3 hashtag forms to explain the book in simple words. When users submit the form, data is saved to "reviews" table. In the view page, average rate and number of raters are displayed, along with basic information of the book. Also, reviews that users wrote are displayed. For hashtags, since it is not efficient to display all of them, (imagine, if 100 users write 3 different hashtags, up to 300 different words need to be displayed in one page!) I implemented hashtag(id) function in model cloudsql.py to query 5 tags that are most frequently submitted. In addition, if the user click on the hashtag button, web application immediately returns the search result page with corresponding hashtag input.<br/>
 To make examples, I distributed the url of this page and asked my friends to add books and rate them. The results are as follows:<br/><br/>
-**<Reviews and hashtags for selected book>**<br/><br/>
+**<Reviews and hashtags for selected book**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/10_examples.PNG) <br/><br/>
 **<What happens if I click #butilovebrahms button>**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/11_hashtag.PNG)<br/><br/>
-**<Reviews and hashtags for baby Rudin>**<br/><br/>
+**<Reviews and hashtags for baby Rudin**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/12_ex.PNG)<br/><br/>
 **<What happens if I click #mathematics button>**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/13_whenmathematics.PNG)<br/><br/>
@@ -61,7 +61,7 @@ In this application, login is not necessary; anyone can access the data and add 
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/14_verify.PNG)<br/><br/>
 **<If requirements are not fulfilled, message appears>**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/15_needed.PNG)<br/><br/>
-**<What happens if failed to verify>**<br/><br/>
+**<What happens if failed to verify**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/16_failed.PNG)<br/><br/>
 **<Verification success; edit form returned>**<br/><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/17_onsuccess.PNG)<br/><br/>
