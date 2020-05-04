@@ -14,5 +14,38 @@ Modified codes are in the directory '2-structured-data/bookshelf'
 Flask, a microframework for Python based Web developing. http://flask.pocoo.org/docs/1.0/
 SQLAlchemy, the Python SQL toolkit and Object Relational Mapper https://www.sqlalchemy.org
 
-## How it looks like
+## Descriptions
+
+### Search Function
 User can find a book by 1) title only, 2) title and year, or 3) hashtag. 
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/1_searchform.PNG)
+
+If the user enters the word in title input and press search button, the web application searches all the books whose title contains that word. For example, if the title input is "database", "Database Systems: The Complete Book" and "Fundamentals of Database Systems" are queried and shown to the result page. For this functionality, search() in crud.py, search list(title, year, limit, cursor) in model cloudsql.py, search list.html were newly implemented and added to the path.
+<Example: search by title only>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/2_bytitle.PNG)
+<Example: searched result>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/3_bytitle_result.PNG)
+
+User can search a book by both title and year as well. This procedure is quiet straightforward, so I just leave the screenshots that describes the result.
+<Example: search by title and year>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/4_bytitleandyear.PNG)
+<Example: search result>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/5_bytitleandyearresult.PNG)
+
+Users are also able to search books by a hashtag. I implemented the application so that user can describe the book using 3 hashtags in review page (will be described later). Therefore, when an user enters the word in hashtag input form and press search button, web application will query books that has similar hashtags with the input. For example, if the user enters 'engineer', the result shows the book with the hashtag 'engineering', 'engineer', 'engineers', and so on. For this functionality, hsearch() in crud.py, hashtag(id) and search hash(hashtag, limit, cursor) in model cloudsql.py, search hash.html were newly implemented and added to path. * I intended to search books that have 'similar' hashtags, but there is a known bug: if I enter 'engineer', the system queries all books with hashtag 'engineer' and 'engineering', but if I enter 'engineering', the system only queries books with hashtag 'engineering'.
+<Example: search by hashtag>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/6_byhashtag.PNG)
+<Example: search result>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/7_hashtag_result.PNG)
+
+### Review Function
+I revised "view.html" to enable user to review books. At the path "/books/<id>", if the user enters "review book" button, the application returns review.html which is newly implemented.
+<view.html>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/8_reviews.PNG)
+<review.html>
+![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/9_reviewform.PNG)
+  
+In this format, users are required to type username, rate the book from 1 to 5, (step = 0.5) and write comment (reviews). Also, they need to fill out 3 hashtag forms to explain the book in simple words. When users submit the form, data is saved to "reviews" table. In the view page, average rate and number of raters are displayed, along with basic information of the book. Also, reviews that users wrote are displayed. For hashtags, since it is not ecient to display all of them, (imagine, if 100 users write 3 different hashtags, up to 300 different words need to be displayed in one page!) I implemented hashtag(id) function in model cloudsql.py to query 5 tags that are most frequently submitted. In addition, if the user click on the hashtag button, web application immediately returns the search result page with corresponding hashtag input.
+To make examples, I distributed the url of this page and asked my friends to add books and rate them.
+The results are as follows:
+![alt text]()
