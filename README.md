@@ -17,19 +17,19 @@ SQLAlchemy, the Python SQL toolkit and Object Relational Mapper https://www.sqla
 ## Descriptions
 
 ### Search Function
-User can find a book by 1) title only, 2) title and year, or 3) hashtag. 
+User can find a book by 1) title only, 2) title and year, or 3) hashtag. <br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/1_searchform.PNG)
 
-If the user enters the word in title input and press search button, the web application searches all the books whose title contains that word. For example, if the title input is "database", "Database Systems: The Complete Book" and "Fundamentals of Database Systems" are queried and shown to the result page. For this functionality, search() in crud.py, search list(title, year, limit, cursor) in model cloudsql.py, search list.html were newly implemented and added to the path. \
-<Example: search by title only>\
+If the user enters the word in title input and press search button, the web application searches all the books whose title contains that word. For example, if the title input is "database", "Database Systems: The Complete Book" and "Fundamentals of Database Systems" are queried and shown to the result page. For this functionality, search() in crud.py, search list(title, year, limit, cursor) in model cloudsql.py, search list.html were newly implemented and added to the path.<br/>
+<Example: search by title only><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/2_bytitle.PNG)
-<Example: searched result>\
+<Example: searched result><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/3_bytitle_result.PNG)
-\
-User can search a book by both title and year as well. This procedure is quiet straightforward, so I just leave the screenshots that describes the result.\
-<Example: search by title and year>\
+<br/>
+User can search a book by both title and year as well. This procedure is quiet straightforward, so I just leave the screenshots that describes the result.<br/>
+<Example: search by title and year><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/4_bytitleandyear.PNG)
-<Example: search result>\
+<Example: search result><br/>
 ![alt text](https://github.com/elianakim/python_bookshelf/blob/master/images/5_bytitleandyearresult.PNG)
 
 Users are also able to search books by a hashtag. I implemented the application so that user can describe the book using 3 hashtags in review page (will be described later). Therefore, when an user enters the word in hashtag input form and press search button, web application will query books that has similar hashtags with the input. For example, if the user enters 'engineer', the result shows the book with the hashtag 'engineering', 'engineer', 'engineers', and so on. For this functionality, hsearch() in crud.py, hashtag(id) and search hash(hashtag, limit, cursor) in model cloudsql.py, search hash.html were newly implemented and added to path. * I intended to search books that have 'similar' hashtags, but there is a known bug: if I enter 'engineer', the system queries all books with hashtag 'engineer' and 'engineering', but if I enter 'engineering', the system only queries books with hashtag 'engineering'.\
